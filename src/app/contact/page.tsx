@@ -1,10 +1,14 @@
-import { CONTACT_EMAIL } from "@/lib/catalogue";
+import { Suspense } from "react";
 import PageHero from "@/components/PageHero";
-export const metadata = { title: "Contact us" };
-export default function Page() {
+import ContactForm from "./ContactForm";
+
+export const metadata = { title: "Contact us", description: "Questions, orders or stockist enquiries. Get in touch with Ace Asia Pet Care." };
+
+export default function Contact() {
   return (
-    <PageHero img="/img/ambrosia/life-9.webp" title="Contact us">
-      <p className="rise d1">Coming soon. For now, email us at <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#fff" }}>{CONTACT_EMAIL}</a>.</p>
-    </PageHero>
+    <>
+      <PageHero img="/img/ambrosia/life-9.webp" title="Let's talk." text="Questions about a product, an order, or stocking our brands? We'd love to hear from you." />
+      <section className="section wrap"><Suspense><ContactForm /></Suspense></section>
+    </>
   );
 }

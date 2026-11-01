@@ -195,3 +195,9 @@ video.galMain{object-fit:cover;background:#000}
 .outlets{list-style:none;margin:4px 0 8px;padding:0;display:grid;gap:10px;font-size:.88rem}
 .outlets strong{display:block;color:var(--teal);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
 .outlets a{color:var(--muted);text-decoration:none}.outlets a:hover{text-decoration:underline;color:var(--teal)}
+.contactForm{display:grid;gap:14px;max-width:760px}
+.contactForm label{display:grid;gap:6px;font-weight:600;font-size:.9rem;color:var(--teal)}
+.contactForm .field{border-radius:12px;font-weight:400;width:100%}
+.formRow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:620px){.formRow{grid-template-columns:1fr}}
+a.chip{text-decoration:none}
