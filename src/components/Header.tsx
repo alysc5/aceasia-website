@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useBasket } from "./Basket";
+import { BRANDS } from "@/lib/catalogue";
 
 export default function Header() {
   const { count, open } = useBasket();
@@ -13,7 +14,13 @@ export default function Header() {
         <button className="iconBtn menuBtn" aria-label="Menu" aria-expanded={menu} onClick={() => setMenu(!menu)}>☰</button>
         <Link href="/" className="logo" aria-label="Ace Asia Pet Care home"><b>ACE ASIA</b><span>PET CARE</span></Link>
         <nav className={`nav ${menu ? "open" : ""}`} aria-label="Main" onClick={() => setMenu(false)}>
-          <Link href="/brands">Our Brands</Link>
+          <div className="navDrop">
+            <Link href="/brands" aria-haspopup="true">Our Brands <span aria-hidden="true">▾</span></Link>
+            <div className="dropMenu" role="menu">
+              {BRANDS.map((b) => <Link key={b.slug} href={`/brands/${b.slug}`} role="menuitem">{b.name}</Link>)}
+              <Link href="/brands" role="menuitem" className="dropAll">See all brands →</Link>
+            </div>
+          </div>
           <Link href="/shop">Shop</Link>
           <Link href="/our-story">Our Story</Link>
           <Link href="/stockists">Stockists</Link>

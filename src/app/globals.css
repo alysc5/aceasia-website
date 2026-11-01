@@ -173,3 +173,16 @@ video.galMain{object-fit:cover;background:#000}
   .photoHero.designed h1{color:var(--teal)}
   .photoHero.designed .mobBanner{display:block;width:100%;border-radius:20px;margin-top:24px;box-shadow:var(--shadow)}
 }
+
+.navDrop{position:relative}
+.navDrop>a span{font-size:.7em}
+.dropMenu{position:absolute;top:100%;left:-14px;min-width:210px;background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;display:grid;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;z-index:40;margin-top:10px}
+.dropMenu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.navDrop:hover .dropMenu,.navDrop:focus-within .dropMenu{opacity:1;visibility:visible;transform:none}
+.dropMenu a{padding:9px 12px;border-radius:8px;font-weight:500}
+.dropMenu a:hover,.dropMenu a:focus-visible{background:var(--sage);text-decoration:none}
+.dropMenu .dropAll{font-weight:700;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin-top:4px}
+@media (max-width:860px){
+  .nav.open .dropMenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:none;padding:4px 0 4px 14px;margin:0;min-width:0}
+  .nav.open .dropMenu .dropAll{border-top:0}
+}
