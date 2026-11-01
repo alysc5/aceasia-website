@@ -8,7 +8,7 @@ export default function Footer() {
         <Link href="/" className="logo"><b style={{ fontSize: "1.2rem" }}>ACE ASIA</b><span>PET CARE</span></Link>
         <Link href="/brands">Our Brands</Link><Link href="/shop">Shop</Link><Link href="/our-story">Our Story</Link><Link href="/stockists">Stockists</Link><Link href="/become-a-stockist">Become a stockist</Link><Link href="/contact">Contact</Link>
         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-        <span className="note">Singapore delivery only</span>
+        <span className="note">Free Singapore delivery from S$150</span>
       </div>
     </footer>
   );

@@ -201,3 +201,7 @@ video.galMain{object-fit:cover;background:#000}
 .formRow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:620px){.formRow{grid-template-columns:1fr}}
 a.chip{text-decoration:none}
+.checkout{display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:start}
+.summary{display:grid;gap:10px;position:sticky;top:90px}
+.summary hr{border:0;border-top:1px solid var(--line);width:100%}
+@media (max-width:860px){.checkout{grid-template-columns:1fr}.summary{position:static;order:-1}}

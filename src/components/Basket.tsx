@@ -6,7 +6,7 @@ import { PRODUCTS, formatPrice, niceName } from "@/lib/catalogue";
 import Placeholder from "./Placeholder";
 
 export type Line = { id: string; size: string; qty: number };
-type Ctx = { lines: Line[]; count: number; add: (l: Line) => void; setQty: (id: string, size: string, qty: number) => void; remove: (id: string, size: string) => void; open: (from?: HTMLElement | null) => void };
+type Ctx = { lines: Line[]; count: number; add: (l: Line) => void; setQty: (id: string, size: string, qty: number) => void; remove: (id: string, size: string) => void; clear: () => void; open: (from?: HTMLElement | null) => void };
 
 const BasketCtx = createContext<Ctx | null>(null);
 const KEY = "aceasia-basket-v1";
@@ -32,6 +32,7 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
   };
   const setQty = (id: string, size: string, qty: number) => save(lines.map((x) => (x.id === id && x.size === size ? { ...x, qty: Math.max(1, Math.min(99, qty)) } : x)));
   const remove = (id: string, size: string) => save(lines.filter((x) => !(x.id === id && x.size === size)));
+  const clear = () => save([]);
   const open = (from?: HTMLElement | null) => { opener.current = from ?? (document.activeElement as HTMLElement); setOpen(true); };
   const close = useCallback(() => { setOpen(false); opener.current?.focus(); }, []);
 
@@ -60,7 +61,7 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
   const subtotal = allPriced ? priced.reduce((s, { l, p }) => s + l.qty * (p!.priceCents ?? 0), 0) : undefined;
 
   return (
-    <BasketCtx.Provider value={{ lines, count, add, setQty, remove, open }}>
+    <BasketCtx.Provider value={{ lines, count, add, setQty, remove, clear, open }}>
       {children}
       {isOpen && (
         <>
@@ -99,7 +100,7 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
             )}
             <footer>
               <div className="row"><span>Subtotal</span><strong>{subtotal === undefined ? "Pending catalogue" : formatPrice(subtotal)}</strong></div>
-              <div className="row small muted"><span>Delivery</span><span>Singapore delivery only</span></div>
+              <div className="row small muted"><span>Delivery</span><span>{subtotal !== undefined && subtotal >= 15000 ? "Free" : "S$10 · free from S$150"}</span></div>
               <Link href="/checkout" className="btn primary" aria-disabled={!allPriced} onClick={(e) => { if (!allPriced) e.preventDefault(); else close(); }} style={allPriced ? undefined : { opacity: .5 }}>Proceed to checkout</Link>
               {!allPriced && lines.length > 0 && <p className="small muted" style={{ margin: 0 }}>Checkout opens once prices are confirmed.</p>}
               <button className="btn ghost" onClick={close}>Continue shopping</button>

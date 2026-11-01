@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { PRODUCTS, brandBySlug, formatPrice, niceName, productById } from "@/lib/catalogue";
+import { PRODUCTS, brandBySlug, formatPrice, niceName, productById, DELIVERY_TEXT } from "@/lib/catalogue";
 import Gallery from "@/components/Gallery";
 import AddToBag from "@/components/AddToBag";
 import ProductCard from "@/components/ProductCard";
@@ -30,14 +30,14 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
           {p.note && <p className="muted">{p.note}</p>}
           <p style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--teal)" }}>{formatPrice(p.priceCents)}</p>
           <AddToBag id={p.id} disabled={unavailable} />
-          <p className="small muted">Singapore delivery only.</p>
+          <p className="small muted">Free delivery in Singapore from S$150.</p>
         </div>
       </div>
       <div className="accordions">
         {p.description && <details open><summary>Description</summary><p className="pre">{p.description}</p></details>}
         {p.ingredients && <details><summary>Ingredients</summary><p className="pre">{p.ingredients}</p></details>}
         {p.analysis && <details><summary>Nutritional analysis</summary><p className="pre">{p.analysis}</p></details>}
-        <details><summary>Delivery</summary><p>We deliver within Singapore only. Self-collection is not available.</p></details>
+        <details><summary>Delivery</summary><p>{DELIVERY_TEXT}</p></details>
       </div>
       {more.length > 0 && <section className="section"><div className="secHead"><h2>You may also like</h2></div><div className="pGrid">{more.map((x) => <ProductCard key={x.id} p={x} />)}</div></section>}
     </div>

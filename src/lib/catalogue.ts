@@ -56,3 +56,9 @@ export function niceName(n: string) {
     .replace(/\b(\d+(?:\.\d+)?)(kg|g|ml|l|oz|cm)\b/gi, (_, a, u) => a + u.toLowerCase())
     .replace(/\bGf\b/g, "Grain-Free").replace(/\. \(/g, " (");
 }
+
+// Owner's delivery rule (2026-11-01): Singapore only, 3-5 business days, S$10 below S$150, free from S$150.
+export const DELIVERY_FEE_CENTS = 1000;
+export const FREE_DELIVERY_FROM_CENTS = 15000;
+export const deliveryFor = (subtotal: number) => (subtotal >= FREE_DELIVERY_FROM_CENTS ? 0 : DELIVERY_FEE_CENTS);
+export const DELIVERY_TEXT = "Singapore only, 3–5 business days. S$10 delivery, free for orders of S$150 and above. If no one is home, we'll leave your parcel at the doorstep. No self-collection.";
