@@ -10,6 +10,7 @@ export type Brand = {
   accent: string; // per-brand accent, used sparingly
   logo?: string; // approved logo (white, for dark photos)
   hero?: string; // brand card/banner photo
+  lightBanner?: boolean; // dark text on a light banner
   banner?: string; // wide designed banner (overrides hero on brand page)
   tagline?: string; // owner-approved line
   gallery?: string[];
@@ -33,7 +34,7 @@ export const BRANDS: Brand[] = [
   { slug: "boss-dog", name: "Boss Dog", category: "Freeze-dried dog food", website: "https://bossnationbrands.com/", accent: "#7a2430" },
   { slug: "zippypaws", name: "ZippyPaws", category: "Pet toys", accent: "#8a6fc9" },
   { slug: "nobupets", name: "Nobu Pets", category: "Anti-bacterial pee pads", accent: "#2a3a8c", logo: "/img/nobupets/logo.webp", hero: "/img/nobupets/card.webp", banner: "/img/nobupets/hero.webp" },
-  { slug: "smart-paws", name: "Smart Paws", category: "Pee trays", accent: "#6b8f71" },
+  { slug: "smart-paws", name: "Smart Paws", category: "Pee trays", accent: "#8a949a", hero: "/img/smart-paws/card.webp", banner: "/img/smart-paws/hero.webp", lightBanner: true },
   { slug: "welcome-studio", name: "Welcome Studio", category: "Cushions", accent: "#c98a8a" },
   { slug: "doggyman", name: "Doggyman", category: "Grooming", accent: "#c9a23c" },
   { slug: "codos", name: "Codos", category: "Pet clippers", accent: "#4a5a6a" },

@@ -160,3 +160,6 @@ img{max-width:100%;display:block}
 .vidThumb{display:grid;place-items:center;width:100%;aspect-ratio:1;background:var(--teal);color:#fff;font-size:1.2rem}
 video.galMain{object-fit:cover;background:#000}
 .brandLogo.round{border-radius:50%;background:#fff;padding:4px}
+.photoHero.light{color:var(--ink)}.photoHero.light h1{color:var(--teal)}
+.brandWord{font-family:var(--font-body);font-weight:700;font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:#8a949a;margin:0 0 8px}
+.photoHero h1{max-width:9.5em}
