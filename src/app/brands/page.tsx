@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { BRANDS } from "@/lib/catalogue";
+import PageHero from "@/components/PageHero";
 import Placeholder from "@/components/Placeholder";
 
 export const metadata: Metadata = { title: "Our Brands" };
@@ -8,9 +9,7 @@ export const metadata: Metadata = { title: "Our Brands" };
 export default function Brands() {
   return (
     <>
-      <section className="hero"><div className="wrap" style={{ display: "block" }}>
-        <h1 className="rise">{BRANDS.length} brands.<br />Thoughtfully chosen.</h1>
-      </div></section>
+      <PageHero img="/img/ambrosia/life-7.webp" title={<>{BRANDS.length} brands.<br />Thoughtfully chosen.</>} text="Food, supplements, toys and everyday essentials we bring to Singapore." />
       <section className="section wrap">
         {BRANDS.map((b, i) => (
           <Link key={b.slug} href={`/brands/${b.slug}`} className={`bRow rise d${Math.min(3, i)}`} style={{ borderLeft: `6px solid ${b.accent}` }}>

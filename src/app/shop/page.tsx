@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import ShopView from "./ShopView";
 
 export const metadata: Metadata = { title: "Shop all products" };
@@ -7,10 +8,7 @@ export const metadata: Metadata = { title: "Shop all products" };
 export default function Shop() {
   return (
     <>
-      <section className="hero"><div className="wrap" style={{ display: "block" }}>
-        <h1 className="rise">Find their next favourite.</h1>
-        <p className="rise d1">Food, supplements, toys and everyday essentials. Singapore delivery only.</p>
-      </div></section>
+      <PageHero img="/img/hero-home.webp" title="Find their next favourite." text="Food, supplements, toys and everyday essentials. Singapore delivery only." />
       <Suspense><ShopView /></Suspense>
     </>
   );
