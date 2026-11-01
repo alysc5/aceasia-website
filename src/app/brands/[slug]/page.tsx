@@ -19,7 +19,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   return (
     <>
       {b.hero ? (
-        <section className={`photoHero ${b.lightBanner ? "light" : ""} ${b.banner ? "designed" : ""}`} style={{ backgroundImage: b.banner ? `url(${b.banner})` : `linear-gradient(90deg, rgba(18,40,40,.72), rgba(18,40,40,.15) 65%), url(${b.hero})` }}>
+        <section className={`photoHero ${b.lightBanner ? "light" : ""} ${b.banner ? "designed" : ""} ${b.slug === "boss-dog" ? "bossHero" : ""}`} style={{ backgroundImage: b.banner ? `url(${b.banner})` : `linear-gradient(90deg, rgba(18,40,40,.72), rgba(18,40,40,.15) 65%), url(${b.hero})` }}>
           <div className="wrap">
             {!b.logo && b.banner && <p className="brandWord rise">{b.name}</p>}
             {b.logo && <img src={b.logo} alt={`${b.name} logo`} className={`brandLogo rise ${b.slug === "nobupets" ? "round" : ""} ${b.slug === "boss-dog" ? "wide" : ""}`} />}
