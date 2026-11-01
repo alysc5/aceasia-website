@@ -157,3 +157,5 @@ img{max-width:100%;display:block}
 .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
 .strip img{aspect-ratio:3/4;object-fit:cover;border-radius:16px;scroll-snap-align:start;width:100%}
 @media (max-width:560px){.photoHero{min-height:420px;padding:64px 0}.brandLogo{height:80px}}
+.vidThumb{display:grid;place-items:center;width:100%;aspect-ratio:1;background:var(--teal);color:#fff;font-size:1.2rem}
+video.galMain{object-fit:cover;background:#000}

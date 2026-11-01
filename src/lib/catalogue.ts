@@ -28,7 +28,7 @@ export type Product = {
 
 export const BRANDS: Brand[] = [
   { slug: "ambrosia", name: "Ambrosia", category: "Ultra premium pet food", website: "https://ambrosiapetfood.com/", accent: "#a5672f", logo: "/img/ambrosia/logo.webp", hero: "/img/ambrosia/life-1.webp", gallery: [2,3,4,5,6,7,8,9,10].map((n) => `/img/ambrosia/life-${n}.webp`) },
-  { slug: "fourflax", name: "Fourflax", category: "Pet supplements", website: "https://www.fourflax.co.nz/", accent: "#2f5b3f" },
+  { slug: "fourflax", name: "Fourflax", category: "Natural supplements for cats & dogs", website: "https://www.fourflax.co.nz/", accent: "#2f5b3f", logo: "/img/fourflax/logo.webp", hero: "/img/ambrosia/life-5.webp" },
   { slug: "boss-dog", name: "Boss Dog", category: "Freeze-dried dog food", website: "https://bossnationbrands.com/", accent: "#7a2430" },
   { slug: "zippypaws", name: "ZippyPaws", category: "Pet toys", accent: "#8a6fc9" },
   { slug: "nobupets", name: "Nobu Pets", category: "Pee pads", accent: "#3f7f86" },
