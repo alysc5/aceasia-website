@@ -23,7 +23,7 @@ export const CATEGORIES: Category[] = ["Food", "Supplements", "Toys", "Wipes & C
 export type Product = {
   id: string; brand: string; name: string; note: string; category: Category; unit: string;
   priceCents: number | null; description: string; ingredients: string; analysis: string;
-  images: string[]; available?: boolean; // available=false shows "Currently unavailable"
+  images: string[]; available?: boolean; hidden?: boolean; // available=false shows "Currently unavailable"
 };
 
 export const BRANDS: Brand[] = [
@@ -40,7 +40,8 @@ export const BRANDS: Brand[] = [
   { slug: "herchy", name: "Herchy", category: "Water nozzles", accent: "#d47fa6" },
 ];
 
-export const PRODUCTS = data as Product[];
+// hidden = owner asked to keep off the site for now (e.g. waiting for photos)
+export const PRODUCTS = (data as Product[]).filter((p) => !p.hidden);
 export const productById = (id: string) => PRODUCTS.find((p) => p.id === id);
 
 export const CONTACT_EMAIL = "hello@aceasiapetcare.com";
