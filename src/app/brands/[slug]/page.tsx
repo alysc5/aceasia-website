@@ -50,7 +50,7 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
         {items.length === 0 && <div className="notice">The {b.name} range is coming to our online store soon. Questions? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</div>}
       </section>
       {b.gallery && <section className="section wrap" aria-label={`${b.name} moments`}>
-        <div className="secHead"><h2>Good food. Brighter days.</h2></div>
+        <div className="secHead"><h2>{b.slug === "zippypaws" ? "Playtime, every time." : "Good food. Brighter days."}</h2></div>
         <div className="strip">{b.gallery.map((g) => <img key={g} src={g} alt="" loading="lazy" />)}</div>
       </section>}
     </>
