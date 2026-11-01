@@ -12,7 +12,7 @@ export default function Header() {
     <header className="hdr">
       <div className="wrap">
         <button className="iconBtn menuBtn" aria-label="Menu" aria-expanded={menu} onClick={() => setMenu(!menu)}>☰</button>
-        <Link href="/" className="logo" aria-label="Ace Asia Pet Care home"><b>ACE ASIA</b><span>PET CARE</span></Link>
+        <Link href="/" className="logo logoRow" aria-label="Ace Asia Pet Care home"><img src="/img/logo-dog.png" alt="" className="logoDog" /><span className="logoText"><b>Ace Asia</b><i>Pet Care</i></span></Link>
         <nav className={`nav ${menu ? "open" : ""}`} aria-label="Main" onClick={() => setMenu(false)}>
           <div className="navDrop">
             <Link href="/brands" aria-haspopup="true">Our Brands <span aria-hidden="true">▾</span></Link>

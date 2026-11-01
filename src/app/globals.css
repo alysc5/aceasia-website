@@ -205,3 +205,11 @@ a.chip{text-decoration:none}
 .summary{display:grid;gap:10px;position:sticky;top:90px}
 .summary hr{border:0;border-top:1px solid var(--line);width:100%}
 @media (max-width:860px){.checkout{grid-template-columns:1fr}.summary{position:static;order:-1}}
+.logoImg{height:58px;width:auto;display:block}.logoImg.small{height:64px}
+@media (max-width:860px){.logoImg{height:50px}}
+.logoRow{display:flex;align-items:center;gap:10px}
+.logoDog{height:46px;width:auto}
+.logoText{display:flex;flex-direction:column;line-height:1.05;text-align:left}
+.logoText b{font-family:var(--font-body);font-weight:600;font-size:1.25rem;color:#3a2e2a;letter-spacing:0}
+.logoText i{font-style:normal;font-family:var(--font-body);font-size:.85rem;color:#3a2e2a;letter-spacing:.02em}
+@media (max-width:860px){.logoDog{height:38px}.logoText b{font-size:1.05rem}}
