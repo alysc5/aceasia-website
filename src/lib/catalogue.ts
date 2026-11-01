@@ -9,7 +9,8 @@ export type Brand = {
   website?: string;
   accent: string; // per-brand accent, used sparingly
   logo?: string; // approved logo (white, for dark photos)
-  hero?: string; // brand banner photo
+  hero?: string; // brand card/banner photo
+  banner?: string; // wide designed banner (overrides hero on brand page)
   tagline?: string; // owner-approved line
   gallery?: string[];
 };
@@ -31,7 +32,7 @@ export const BRANDS: Brand[] = [
   { slug: "fourflax", name: "Fourflax", category: "Natural supplements for cats & dogs", website: "https://www.fourflax.co.nz/", accent: "#2f5b3f", logo: "/img/fourflax/logo.webp", hero: "/img/ambrosia/life-5.webp" },
   { slug: "boss-dog", name: "Boss Dog", category: "Freeze-dried dog food", website: "https://bossnationbrands.com/", accent: "#7a2430" },
   { slug: "zippypaws", name: "ZippyPaws", category: "Pet toys", accent: "#8a6fc9" },
-  { slug: "nobupets", name: "Nobu Pets", category: "Pee pads", accent: "#3f7f86" },
+  { slug: "nobupets", name: "Nobu Pets", category: "Anti-bacterial pee pads", accent: "#2a3a8c", logo: "/img/nobupets/logo.webp", hero: "/img/nobupets/card.webp", banner: "/img/nobupets/hero.webp" },
   { slug: "smart-paws", name: "Smart Paws", category: "Pee trays", accent: "#6b8f71" },
   { slug: "welcome-studio", name: "Welcome Studio", category: "Cushions", accent: "#c98a8a" },
   { slug: "doggyman", name: "Doggyman", category: "Grooming", accent: "#c9a23c" },

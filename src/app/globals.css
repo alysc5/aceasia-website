@@ -159,3 +159,4 @@ img{max-width:100%;display:block}
 @media (max-width:560px){.photoHero{min-height:420px;padding:64px 0}.brandLogo{height:80px}}
 .vidThumb{display:grid;place-items:center;width:100%;aspect-ratio:1;background:var(--teal);color:#fff;font-size:1.2rem}
 video.galMain{object-fit:cover;background:#000}
+.brandLogo.round{border-radius:50%;background:#fff;padding:4px}

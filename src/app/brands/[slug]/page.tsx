@@ -19,9 +19,9 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
   return (
     <>
       {b.hero ? (
-        <section className="photoHero" style={{ backgroundImage: `linear-gradient(90deg, rgba(18,40,40,.72), rgba(18,40,40,.15) 65%), url(${b.hero})` }}>
+        <section className="photoHero" style={{ backgroundImage: b.banner ? `url(${b.banner})` : `linear-gradient(90deg, rgba(18,40,40,.72), rgba(18,40,40,.15) 65%), url(${b.hero})` }}>
           <div className="wrap">
-            {b.logo && <img src={b.logo} alt={`${b.name} logo`} className="brandLogo rise" />}
+            {b.logo && <img src={b.logo} alt={`${b.name} logo`} className={`brandLogo rise ${b.banner ? "round" : ""}`} />}
             <h1 className="rise d1">Discover {b.name}.</h1>
             <p className="rise d2">{b.category}, available from Ace Asia Pet Care in Singapore.</p>
             <a href="#range" className="btn primary rise d3">Shop {b.name} →</a>
