@@ -7,7 +7,7 @@ export const metadata = { title: "Contact us", description: "Questions, orders o
 export default function Contact() {
   return (
     <>
-      <PageHero img="/img/ambrosia/life-9.webp" pos="center 30%" title="Let's talk." text="Questions about a product, an order, or stocking our brands? We'd love to hear from you." />
+      <PageHero wide img="/img/banner-contact.webp" title="Let's talk." text="Questions about a product, an order, or stocking our brands? We'd love to hear from you." />
       <section className="section wrap"><Suspense><ContactForm /></Suspense></section>
     </>
   );

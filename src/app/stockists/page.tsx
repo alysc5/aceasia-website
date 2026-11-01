@@ -6,7 +6,7 @@ export const metadata = { title: "Stockists", description: "Where to buy Ace Asi
 export default function Stockists() {
   return (
     <>
-      <PageHero img="/img/ambrosia/life-10.webp" title="Find us near you." text="Our brands are available at these pet shops across Singapore, and online." />
+      <PageHero wide img="/img/banner-stockists.webp" title="Find us near you." text="Our brands are available at these pet shops across Singapore, and online." />
       <section className="section wrap" aria-labelledby="shopsH">
         <div className="secHead"><h2 id="shopsH">In store</h2><p className="muted small">{STOCKISTS.length} stockists, A to Z · tap an address for directions</p></div>
         <div className="stockGrid">

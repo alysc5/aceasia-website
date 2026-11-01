@@ -6,7 +6,7 @@ export const metadata = { title: "Become a stockist", description: "Stock Ace As
 export default function BecomeStockist() {
   return (
     <>
-      <PageHero img="/img/ambrosia/life-6.webp" title="Stock our brands." text="Run a pet shop, groomer or clinic in Singapore? Tell us about your business and we'll be in touch." />
+      <PageHero wide img="/img/banner-become-stockist.webp" title="Stock our brands." text="Run a pet shop, groomer or clinic in Singapore? Tell us about your business and we'll be in touch." />
       <section className="section wrap"><StockistForm /></section>
     </>
   );

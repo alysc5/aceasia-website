@@ -8,7 +8,7 @@ export const metadata = { title: "Our Story", description: "Ace Asia Pet Care ha
 export default function OurStory() {
   return (
     <>
-      <PageHero img="/img/ambrosia/life-4.webp" pos="center 35%" title={<>Good things for pets.<br />Peace of mind for you.</>} text="Since 2020" />
+      <PageHero wide img="/img/banner-story.webp" title={<>Good things for pets.<br />Peace of mind for you.</>} text="Since 2020" />
       <section className="section wrap">
         <div className="storyCard rise" style={{ margin: "0 auto" }}>
           <h2>It started with a simple question.</h2>
