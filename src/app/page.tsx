@@ -34,7 +34,7 @@ export default function Home() {
       <section className="wrap">
         <div className="band">
           <div><h2 style={{ marginBottom: 4 }}>Great brands for your shelves.</h2><p className="muted" style={{ margin: 0 }}>Retailers in Singapore: talk to us about carrying our brands.</p></div>
-          <Link href="/contact?type=stockist" className="btn dark">Become a stockist →</Link>
+          <Link href="/become-a-stockist" className="btn dark">Become a stockist →</Link>
         </div>
       </section>
     </>

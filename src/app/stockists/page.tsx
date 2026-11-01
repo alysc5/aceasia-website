@@ -1,5 +1,4 @@
 import PageHero from "@/components/PageHero";
-import { CONTACT_EMAIL } from "@/lib/catalogue";
 import { ONLINE, STOCKISTS, mapLink } from "@/lib/stockists";
 
 export const metadata = { title: "Stockists", description: "Where to buy Ace Asia Pet Care brands in Singapore, in store and online." };
@@ -40,7 +39,8 @@ export default function Stockists() {
         </div>
       </section>
       <section className="wrap"><div className="band">
-        <div><h2 style={{ marginBottom: 4 }}>Want to stock our brands?</h2><p className="muted" style={{ margin: 0 }}>Email us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p></div>
+        <div><h2 style={{ marginBottom: 4 }}>Want to stock our brands?</h2><p className="muted" style={{ margin: 0 }}>Tell us about your shop and we&apos;ll get you set up.</p></div>
+        <a href="/become-a-stockist" className="btn dark">Become a stockist →</a>
       </div></section>
     </>
   );

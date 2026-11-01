@@ -1,11 +1,9 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { CONTACT_EMAIL } from "@/lib/catalogue";
 
 export default function ContactForm() {
-  const sp = useSearchParams();
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [err, setErr] = useState("");
 
@@ -33,11 +31,12 @@ export default function ContactForm() {
         <label>Your name<input name="name" className="field" required maxLength={100} autoComplete="name" /></label>
         <label>Email<input name="email" type="email" className="field" required maxLength={200} autoComplete="email" /></label>
       </div>
+      <p className="small muted" style={{ margin: 0 }}>Want to stock our brands? Use our <a href="/become-a-stockist">stockist form</a>.</p>
       <div className="formRow">
         <label>Phone (optional)<input name="phone" type="tel" className="field" maxLength={30} autoComplete="tel" /></label>
         <label>Topic
-          <select name="topic" className="field" defaultValue={sp.get("type") === "stockist" ? "Become a stockist" : "General question"}>
-            <option>General question</option><option>Product question</option><option>Order help</option><option>Become a stockist</option>
+          <select name="topic" className="field" defaultValue="General question">
+            <option>General question</option><option>Product question</option><option>Order help</option>
           </select>
         </label>
       </div>
