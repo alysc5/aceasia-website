@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { PRODUCTS, formatPrice } from "@/lib/catalogue";
+import { PRODUCTS, formatPrice, niceName } from "@/lib/catalogue";
 import Placeholder from "./Placeholder";
 
 export type Line = { id: string; size: string; qty: number };
@@ -80,9 +80,9 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
               <div className="items">
                 {priced.map(({ l, p }) => (
                   <div className="line" key={l.id + l.size}>
-                    <Placeholder label={p?.name ?? "Product"} />
+                    {p?.images[0] ? <img src={p.images[0]} alt="" style={{ width: 72, height: 72, objectFit: "cover", borderRadius: 10 }} /> : <Placeholder label={p?.name ?? "Product"} />}
                     <div>
-                      <strong>{p?.name ?? "Product no longer listed"}</strong>
+                      <strong>{p ? niceName(p.name) : "Product no longer listed"}</strong>
                       <div className="small muted">{l.size && `Size: ${l.size} · `}{formatPrice(p?.priceCents)}</div>
                       <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8 }}>
                         <div className="qty">

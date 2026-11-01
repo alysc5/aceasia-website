@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { BRANDS, PRODUCTS } from "@/lib/catalogue";
 import BrandCard from "@/components/BrandCard";
-import Placeholder from "@/components/Placeholder";
 import ProductCard from "@/components/ProductCard";
 
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
               <Link href="/shop" className="btn ghost">Shop all</Link>
             </div>
           </div>
-          <Placeholder label="Ace Asia" className="heroArt rise d2" />
+          <img src="/img/hero-home.webp" alt="A golden retriever and a tabby cat relaxing together on a cosy blanket" className="heroArt heroImg rise d2" />
         </div>
       </section>
 

@@ -14,7 +14,7 @@ export default function Brands() {
       <section className="section wrap">
         {BRANDS.map((b, i) => (
           <Link key={b.slug} href={`/brands/${b.slug}`} className={`bRow rise d${Math.min(3, i)}`} style={{ borderLeft: `6px solid ${b.accent}` }}>
-            <Placeholder label={b.name} />
+            {b.hero ? <img src={b.hero} alt="" className="rowImg" loading="lazy" /> : <Placeholder label={b.name} />}
             <div><h2>{b.name}</h2><p className="muted" style={{ margin: 0 }}>{b.category}</p></div>
             <span className="btn primary" aria-hidden="true">Explore brand →</span>
           </Link>

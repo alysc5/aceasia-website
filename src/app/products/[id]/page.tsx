@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { PRODUCTS, brandBySlug, formatPrice, productById } from "@/lib/catalogue";
+import { PRODUCTS, brandBySlug, formatPrice, niceName, productById } from "@/lib/catalogue";
 import Gallery from "@/components/Gallery";
 import AddToBag from "@/components/AddToBag";
 import ProductCard from "@/components/ProductCard";
@@ -10,7 +10,7 @@ export const generateStaticParams = () => PRODUCTS.map((p) => ({ id: p.id }));
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const p = productById((await params).id);
-  return p ? { title: p.name, description: p.description.slice(0, 155) || `${p.name} from Ace Asia Pet Care, Singapore.` } : {};
+  return p ? { title: niceName(p.name), description: p.description.slice(0, 155) || `${p.name} from Ace Asia Pet Care, Singapore.` } : {};
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
@@ -23,10 +23,10 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     <div className="wrap section">
       <nav className="small muted" aria-label="Breadcrumb"><Link href="/">Home</Link> › <Link href="/brands">Our Brands</Link> › <Link href={`/brands/${p.brand}`}>{b?.name}</Link></nav>
       <div className="pdp">
-        <Gallery images={p.images} name={p.name} />
+        <Gallery images={p.images} name={niceName(p.name)} />
         <div className="rise">
           <p className="pBrand">{b?.name}</p>
-          <h1 style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)" }}>{p.name}</h1>
+          <h1 style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)" }}>{niceName(p.name)}</h1>
           {p.note && <p className="muted">{p.note}</p>}
           <p style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--teal)" }}>{formatPrice(p.priceCents)}</p>
           <AddToBag id={p.id} disabled={unavailable} />

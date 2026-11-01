@@ -8,7 +8,10 @@ export type Brand = {
   category: string; // plain, factual category only
   website?: string;
   accent: string; // per-brand accent, used sparingly
-  logo?: string; // approved logo path, added later from the Brand Kit
+  logo?: string; // approved logo (white, for dark photos)
+  hero?: string; // brand banner photo
+  tagline?: string; // owner-approved line
+  gallery?: string[];
 };
 
 import data from "@/data/products.json";
@@ -24,7 +27,7 @@ export type Product = {
 };
 
 export const BRANDS: Brand[] = [
-  { slug: "ambrosia", name: "Ambrosia", category: "Pet food", website: "https://ambrosiapetfood.com/", accent: "#a5672f" },
+  { slug: "ambrosia", name: "Ambrosia", category: "Ultra premium pet food", website: "https://ambrosiapetfood.com/", accent: "#a5672f", logo: "/img/ambrosia/logo.webp", hero: "/img/ambrosia/life-1.webp", gallery: [2,3,4,5,6,7,8,9,10].map((n) => `/img/ambrosia/life-${n}.webp`) },
   { slug: "fourflax", name: "Fourflax", category: "Pet supplements", website: "https://www.fourflax.co.nz/", accent: "#2f5b3f" },
   { slug: "boss-dog", name: "Boss Dog", category: "Freeze-dried dog food", website: "https://bossnationbrands.com/", accent: "#7a2430" },
   { slug: "zippypaws", name: "ZippyPaws", category: "Pet toys", accent: "#8a6fc9" },
@@ -45,3 +48,11 @@ export const CONTACT_EMAIL = "hello@aceasiapetcare.com";
 export const brandBySlug = (s: string) => BRANDS.find((b) => b.slug === s);
 export const productsFor = (slug: string) => PRODUCTS.filter((p) => p.brand === slug);
 export const formatPrice = (c?: number | null) => (c == null ? "Price coming soon" : `S$${(c / 100).toFixed(2)}`);
+
+// Sheet names are ALL CAPS; show them in friendly title case. Units (1.5Kg, 100g, GF) stay readable.
+export function niceName(n: string) {
+  return n.replace(/\s+/g, " ").trim().toLowerCase()
+    .replace(/(^|[\s(&,/-])([a-z])/g, (_, a, b) => a + b.toUpperCase())
+    .replace(/\b(\d+(?:\.\d+)?)(kg|g|ml|l|oz|cm)\b/gi, (_, a, u) => a + u.toLowerCase())
+    .replace(/\bGf\b/g, "Grain-Free").replace(/\. \(/g, " (");
+}

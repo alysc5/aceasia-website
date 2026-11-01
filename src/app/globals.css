@@ -147,3 +147,13 @@ img{max-width:100%;display:block}
 .accordions details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 20px}
 .accordions summary{cursor:pointer;font-family:var(--font-head);font-size:1.2rem;color:var(--teal)}
 .pre{white-space:pre-line;font-size:.92rem}
+
+.heroImg{width:100%;object-fit:cover;box-shadow:var(--shadow)}
+.cardImg{aspect-ratio:4/3;object-fit:cover;width:100%;border-bottom:4px solid var(--accent)}
+.rowImg{aspect-ratio:16/9;object-fit:cover;width:100%;border-radius:12px}
+.photoHero{background-size:cover;background-position:center;color:#fff;padding:96px 0 80px;border-radius:0 0 32px 32px;min-height:480px;display:flex;align-items:center}
+.photoHero h1{color:#fff}.photoHero p{font-size:1.15rem;max-width:30em}
+.brandLogo{height:110px;width:auto;margin-bottom:12px}
+.strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.strip img{aspect-ratio:3/4;object-fit:cover;border-radius:16px;scroll-snap-align:start;width:100%}
+@media (max-width:560px){.photoHero{min-height:420px;padding:64px 0}.brandLogo{height:80px}}
