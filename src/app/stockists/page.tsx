@@ -9,15 +9,22 @@ export default function Stockists() {
     <>
       <PageHero img="/img/ambrosia/life-10.webp" title="Find us near you." text="Our brands are available at these pet shops across Singapore, and online." />
       <section className="section wrap" aria-labelledby="shopsH">
-        <div className="secHead"><h2 id="shopsH">In store</h2><p className="muted small">{STOCKISTS.length} stockists, A to Z</p></div>
+        <div className="secHead"><h2 id="shopsH">In store</h2><p className="muted small">{STOCKISTS.length} stockists, A to Z · tap an address for directions</p></div>
         <div className="stockGrid">
           {STOCKISTS.map((s) => (
             <article key={s.name} className="stockCard rise">
               <h3>{s.name}</h3>
-              {s.note && <span className="tag">{s.note}</span>}
-              {s.address && <p className="small">{s.address}</p>}
+              {s.outlets.length > 1 && <span className="tag">{s.outlets.length} outlets</span>}
+              <ul className="outlets">
+                {s.outlets.map((o) => (
+                  <li key={o.address}>
+                    {o.label && <strong>{o.label}</strong>}
+                    <a href={mapLink(`${s.name} ${o.address}`)} target="_blank" rel="noopener noreferrer">{o.address} ↗</a>
+                  </li>
+                ))}
+              </ul>
               <div className="actions" style={{ marginTop: "auto" }}>
-                <a className="btn ghost small" href={mapLink(s.mapQuery)} target="_blank" rel="noopener noreferrer">{s.note ? "Find outlets" : "View on map"} ↗</a>
+                {s.mapQuery && <a className="btn ghost small" href={mapLink(s.mapQuery)} target="_blank" rel="noopener noreferrer">View on map ↗</a>}
                 {s.website && <a className="btn ghost small" href={s.website} target="_blank" rel="noopener noreferrer">Website ↗</a>}
               </div>
             </article>
