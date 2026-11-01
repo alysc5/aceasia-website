@@ -163,3 +163,5 @@ video.galMain{object-fit:cover;background:#000}
 .photoHero.light{color:var(--ink)}.photoHero.light h1{color:var(--teal)}
 .brandWord{font-family:var(--font-body);font-weight:700;font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:#8a949a;margin:0 0 8px}
 .photoHero h1{max-width:9.5em}
+.storyCard{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;max-width:860px}
+.storyCard p{font-size:1.05rem}

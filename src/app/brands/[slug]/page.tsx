@@ -40,6 +40,9 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
         </div>
       </section>
       )}
+      {b.story && <section className="section wrap"><div className="storyCard rise">
+        <h2>About {b.name}</h2>{b.story.map((t) => <p key={t.slice(0, 20)}>{t}</p>)}
+      </div></section>}
       <section className="section wrap" id="range">
         <div className="secHead"><h2>Our product range</h2></div>
         {items.length > 0 && <div className="pGrid">{items.slice(0, 12).map((p) => <ProductCard key={p.id} p={p} />)}</div>}
