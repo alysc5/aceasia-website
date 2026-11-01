@@ -213,3 +213,7 @@ a.chip{text-decoration:none}
 .logoText b{font-family:var(--font-body);font-weight:600;font-size:1.25rem;color:#3a2e2a;letter-spacing:0}
 .logoText i{font-style:normal;font-family:var(--font-body);font-size:.85rem;color:#3a2e2a;letter-spacing:.02em}
 @media (max-width:860px){.logoDog{height:38px}.logoText b{font-size:1.05rem}}
+.splitHero{padding:56px 0}
+.splitHero .heroImg{aspect-ratio:4/3;max-height:440px;width:100%;object-fit:cover;border-radius:28px}
+.splitHero h1{max-width:12em}
+@media (max-width:760px){.splitHero{padding:32px 0}.splitHero .heroImg{max-height:none}}

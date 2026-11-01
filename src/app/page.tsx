@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard";
 export default function Home() {
   return (
     <>
-      <PageHero img="/img/hero-home.webp" title={<>Good brands.<br />Happier pets.</>} text="Pet food, supplements, toys and everyday essentials from brands we carry in Singapore.">
+      <PageHero full img="/img/hero-home.webp" title={<>Good brands.<br />Happier pets.</>} text="Pet food, supplements, toys and everyday essentials from brands we carry in Singapore.">
         <div className="actions rise d2">
           <Link href="/brands" className="btn primary">Explore our brands →</Link>
           <Link href="/shop" className="btn ghost">Shop all</Link>

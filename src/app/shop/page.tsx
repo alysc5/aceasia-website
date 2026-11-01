@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Shop all products" };
 export default function Shop() {
   return (
     <>
-      <PageHero img="/img/hero-home.webp" title="Find their next favourite." text="Food, supplements, toys and everyday essentials. Singapore delivery only." />
+      <PageHero full img="/img/hero-home.webp" title="Find their next favourite." text="Food, supplements, toys and everyday essentials. Singapore delivery only." />
       <Suspense><ShopView /></Suspense>
     </>
   );
