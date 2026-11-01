@@ -165,3 +165,4 @@ video.galMain{object-fit:cover;background:#000}
 .photoHero h1{max-width:9.5em}
 .storyCard{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;max-width:860px}
 .storyCard p{font-size:1.05rem}
+.brandLogo.wide{height:auto;width:min(420px,80%)}
