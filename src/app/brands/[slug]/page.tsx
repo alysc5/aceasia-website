@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { BRANDS, CONTACT_EMAIL, brandBySlug, productsFor } from "@/lib/catalogue";
 import Placeholder from "@/components/Placeholder";
+import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
 
 export const generateStaticParams = () => BRANDS.map((b) => ({ slug: b.slug }));
 
@@ -28,6 +30,8 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       </section>
       <section className="section wrap">
         <div className="secHead"><h2>Our product range</h2></div>
+        {items.length > 0 && <div className="pGrid">{items.slice(0, 12).map((p) => <ProductCard key={p.id} p={p} />)}</div>}
+        {items.length > 12 && <p style={{ textAlign: "center", marginTop: 24 }}><Link href={`/shop?brand=${b.slug}`} className="btn ghost">See all {items.length} {b.name} products →</Link></p>}
         {items.length === 0 && <div className="notice">The {b.name} range is coming to our online store soon. Questions? Email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</div>}
       </section>
     </>

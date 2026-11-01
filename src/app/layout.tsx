@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: { default: "Ace Asia Pet Care | Pet brands in Singapore", template: "%s | Ace Asia Pet Care" },
-  description: "Ace Asia Pet Care brings Ambrosia, Fourflax, Boss Dog, ZippyPaws and Nobupets to pet owners and retailers in Singapore.",
+  description: "Ace Asia Pet Care brings Ambrosia, Fourflax, Boss Dog, ZippyPaws and more pet brands to pet owners and retailers in Singapore.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

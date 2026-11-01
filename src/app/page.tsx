@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BRANDS, PRODUCTS } from "@/lib/catalogue";
 import BrandCard from "@/components/BrandCard";
 import Placeholder from "@/components/Placeholder";
+import ProductCard from "@/components/ProductCard";
 
 export default function Home() {
   return (
@@ -21,12 +22,13 @@ export default function Home() {
       </section>
 
       <section className="section wrap" aria-labelledby="brandsH">
-        <div className="secHead"><h2 id="brandsH">Our Brands</h2><p className="muted small">{BRANDS.length} brands, one shared love for pets.</p></div>
-        <div className="brandGrid">{BRANDS.map((b, i) => <BrandCard key={b.slug} b={b} i={i} />)}</div>
+        <div className="secHead"><h2 id="brandsH">Our Brands</h2><p className="muted small"><Link href="/brands">See all {BRANDS.length} brands →</Link></p></div>
+        <div className="brandGrid">{BRANDS.slice(0, 5).map((b, i) => <BrandCard key={b.slug} b={b} i={i} />)}</div>
       </section>
 
       <section className="section wrap" aria-labelledby="favH">
         <div className="secHead"><h2 id="favH">Curated Favourites</h2></div>
+        <div className="pGrid">{BRANDS.slice(0, 5).map((b) => PRODUCTS.find((p) => p.brand === b.slug && p.priceCents != null)).filter((p) => p !== undefined).map((p) => <ProductCard key={p.id} p={p} />)}</div>
         {PRODUCTS.length === 0 && <div className="notice">Our online catalogue is being prepared. In the meantime, email us and we&apos;ll help you find the right product.</div>}
       </section>
 

@@ -56,7 +56,7 @@ export function BasketProvider({ children }: { children: React.ReactNode }) {
 
   const count = lines.reduce((n, l) => n + l.qty, 0);
   const priced = lines.map((l) => ({ l, p: PRODUCTS.find((p) => p.id === l.id) }));
-  const allPriced = priced.length > 0 && priced.every(({ p }) => p?.priceCents !== undefined);
+  const allPriced = priced.length > 0 && priced.every(({ p }) => p?.priceCents != null);
   const subtotal = allPriced ? priced.reduce((s, { l, p }) => s + l.qty * (p!.priceCents ?? 0), 0) : undefined;
 
   return (
