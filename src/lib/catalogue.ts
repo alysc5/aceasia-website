@@ -36,11 +36,7 @@ export const BRANDS: Brand[] = [
   { slug: "zippypaws", name: "ZippyPaws", category: "Playful dog toys", accent: "#ff6f91", hero: "/img/zippypaws/card.webp", banner: "/img/zippypaws/hero.webp", lightBanner: true, gallery: ["/img/zippypaws/avocado-life.webp","/img/zippypaws/picnic-life.webp","/img/zippypaws/monkey-life1.webp","/img/zippypaws/cupcake-life.webp","/img/zippypaws/reindeer-life.webp","/img/zippypaws/pig-life.webp","/img/zippypaws/monkey-life2.webp"] },
   { slug: "nobupets", name: "Nobu Pets", category: "Anti-bacterial pee pads", accent: "#2a3a8c", logo: "/img/nobupets/logo.webp", hero: "/img/nobupets/card.webp", banner: "/img/nobupets/hero.webp", story: ["At Nobu Pets, we are passionate fur parents creating the best for our furkids. When we couldn't find products that we love and trust, we decided to create these products ourselves. We have dedicated ourselves to creating safe and functional items that are of excellent quality.", "The Nobu pad is a safe and effective way to potty-train your puppy. It has built in attractant, quick-drying elements, and it eliminates harmful bacteria and unpleasant odours. With seven layers of protection to avoid leaks, you can rest easy, knowing that your home will stay clean and fresh!"] },
   { slug: "smart-paws", name: "Smart Paws", category: "Pee trays", accent: "#8a949a", hero: "/img/smart-paws/card.webp", banner: "/img/smart-paws/hero.webp", lightBanner: true },
-  { slug: "welcome-studio", name: "Welcome Studio", category: "Cushions", accent: "#c98a8a" },
-  { slug: "doggyman", name: "Doggyman", category: "Grooming", accent: "#c9a23c" },
-  { slug: "codos", name: "Codos", category: "Pet clippers", accent: "#4a5a6a" },
-  { slug: "superpets", name: "Superpets", category: "Bowls", accent: "#5b8fb9" },
-  { slug: "herchy", name: "Herchy", category: "Water nozzles", accent: "#d47fa6" },
+  { slug: "herchy", name: "Herchy", category: "Pet water nozzles", website: "https://herchy.com.tw/", accent: "#3a8fb7", hero: "/img/herchy/card.webp", banner: "/img/herchy/hero.webp", lightBanner: true },
 ];
 
 // hidden = owner asked to keep off the site for now (e.g. waiting for photos)

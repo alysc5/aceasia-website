@@ -166,3 +166,10 @@ video.galMain{object-fit:cover;background:#000}
 .storyCard{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 32px;max-width:860px}
 .storyCard p{font-size:1.05rem}
 .brandLogo.wide{height:auto;width:min(420px,80%)}
+.mobBanner{display:none}
+@media (max-width:760px){
+  .photoHero{background-position:65% center;min-height:0}
+  .photoHero.designed{background:linear-gradient(180deg,var(--cream),var(--sage))!important;color:var(--ink);padding:40px 0 28px}
+  .photoHero.designed h1{color:var(--teal)}
+  .photoHero.designed .mobBanner{display:block;width:100%;border-radius:20px;margin-top:24px;box-shadow:var(--shadow)}
+}
