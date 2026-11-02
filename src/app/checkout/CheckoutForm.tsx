@@ -3,13 +3,16 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useBasket } from "@/components/Basket";
+import { useOutOfStock } from "@/components/Stock";
 import { DELIVERY_TEXT, FREE_DELIVERY_FROM_CENTS, PRODUCTS, deliveryFor, formatPrice, niceName } from "@/lib/catalogue";
 
 export default function CheckoutForm() {
   const { lines } = useBasket();
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
-  const items = lines.map((l) => ({ l, p: PRODUCTS.find((p) => p.id === l.id) })).filter((x) => x.p && x.p.priceCents != null);
+  const oos = useOutOfStock();
+  const items = lines.map((l) => ({ l, p: PRODUCTS.find((p) => p.id === l.id) })).filter((x) => x.p && x.p.priceCents != null && !oos.has(x.l.id));
+  const gone = lines.filter((l) => oos.has(l.id)).length;
   const subtotal = items.reduce((s, { l, p }) => s + l.qty * p!.priceCents!, 0);
   const delivery = deliveryFor(subtotal);
 
@@ -28,6 +31,7 @@ export default function CheckoutForm() {
     <div className="checkout">
       <form className="contactForm storyCard" onSubmit={pay}>
         <h2>Delivery details</h2>
+        {gone > 0 && <p role="alert" className="small" style={{ color: "#a33", margin: 0 }}>{gone} item{gone > 1 ? "s are" : " is"} now out of stock and won&apos;t be charged. Remove {gone > 1 ? "them" : "it"} from your bag to continue.</p>}
         <div className="formRow">
           <label>Full name<input name="name" className="field" required maxLength={100} autoComplete="name" /></label>
           <label>Phone<input name="phone" type="tel" className="field" required maxLength={30} autoComplete="tel" /></label>
@@ -41,7 +45,7 @@ export default function CheckoutForm() {
         <label>Delivery notes (optional)<input name="notes" className="field" maxLength={300} /></label>
         <p className="small muted" style={{ margin: 0 }}>{DELIVERY_TEXT}</p>
         {err && <p role="alert" className="small" style={{ color: "#a33", margin: 0 }}>{err}</p>}
-        <button className="btn primary" disabled={busy}>{busy ? "Taking you to payment…" : `Pay ${formatPrice(subtotal + delivery)} securely`}</button>
+        <button className="btn primary" disabled={busy || gone > 0}>{busy ? "Taking you to payment…" : `Pay ${formatPrice(subtotal + delivery)} securely`}</button>
         <p className="small muted" style={{ margin: 0 }}>You&apos;ll pay on HitPay&apos;s secure page (PayNow, cards and more).</p>
       </form>
       <aside className="storyCard summary">

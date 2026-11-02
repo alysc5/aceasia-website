@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import { useBasket } from "./Basket";
+import { useOutOfStock } from "./Stock";
 
-export default function AddToBag({ id, disabled }: { id: string; disabled: boolean }) {
+export default function AddToBag({ id, disabled: off }: { id: string; disabled: boolean }) {
   const { add, open } = useBasket();
+  const oos = useOutOfStock().has(id);
+  const disabled = off || oos;
   const [qty, setQty] = useState(1);
   return (
     <div style={{ display: "grid", gap: 14 }}>

@@ -3,6 +3,7 @@ import "@fontsource-variable/fraunces";
 import "@fontsource-variable/inter";
 import "./globals.css";
 import { BasketProvider } from "@/components/Basket";
+import { StockProvider } from "@/components/Stock";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -16,12 +17,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-SG">
       <body>
-        <BasketProvider>
+        <StockProvider><BasketProvider>
           <a href="#main" className="srOnly">Skip to content</a>
           <Header />
           <main id="main">{children}</main>
           <Footer />
-        </BasketProvider>
+        </BasketProvider></StockProvider>
       </body>
     </html>
   );

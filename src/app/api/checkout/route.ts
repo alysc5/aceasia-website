@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { PRODUCTS, deliveryFor, formatPrice, niceName } from "@/lib/catalogue";
 import { SHOP_EMAIL, esc, sendEmail } from "@/lib/email";
 import { createPaymentRequest } from "@/lib/hitpay";
+import { getOutOfStock } from "@/lib/stock";
 
 const clean = (v: unknown, max: number) => String(v ?? "").replace(/[\r\n]+/g, " ").trim().slice(0, max);
 
@@ -14,12 +15,14 @@ export async function POST(req: Request) {
   if (!name || !phone || !address || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return NextResponse.json({ error: "Please fill in your name, email, phone and address." }, { status: 400 });
   if (!/^\d{6}$/.test(postal)) return NextResponse.json({ error: "Please enter a 6-digit Singapore postal code." }, { status: 400 });
 
+  const oos = new Set(await getOutOfStock());
   const lines = (Array.isArray(b.lines) ? b.lines : []).slice(0, 50).map((l) => {
     const p = PRODUCTS.find((x) => x.id === String((l as { id?: unknown }).id));
     const qty = Math.max(1, Math.min(99, Math.floor(Number((l as { qty?: unknown }).qty) || 0)));
-    return p && p.priceCents != null && p.available !== false ? { p, qty } : null;
+    return p && p.priceCents != null && p.available !== false && !oos.has(p.id) ? { p, qty } : null;
   }).filter((x) => x !== null);
-  if (!lines.length) return NextResponse.json({ error: "Your bag is empty." }, { status: 400 });
+  if (!lines.length) return NextResponse.json({ error: "Your bag is empty, or the items are now out of stock." }, { status: 400 });
+  if (lines.length < (Array.isArray(b.lines) ? b.lines.length : 0)) return NextResponse.json({ error: "Sorry, something in your bag just went out of stock. Please check your bag." }, { status: 409 });
 
   const subtotal = lines.reduce((s, { p, qty }) => s + p.priceCents! * qty, 0);
   const delivery = deliveryFor(subtotal), total = subtotal + delivery;
