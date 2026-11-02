@@ -3,7 +3,7 @@
 // "full" = edge-to-edge photo with white text. Default = text left, framed photo right.
 export default function PageHero({ title, text, img, children, full = false, wide = false, pos = "center" }: { title: React.ReactNode; text?: string; img: string; children?: React.ReactNode; full?: boolean; wide?: boolean; pos?: string }) {
   if (wide) return (
-    <section className="photoHero light designed wideHero" style={{ backgroundImage: `url(${img})` }}>
+    <section className="photoHero light designed wideHero" style={{ backgroundImage: `url(${img})`, backgroundPosition: pos === "center" ? undefined : pos }}>
       <div className="wrap">
         <h1 className="rise">{title}</h1>
         {text && <p className="rise d1">{text}</p>}
