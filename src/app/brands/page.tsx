@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Our Brands" };
 export default function Brands() {
   return (
     <>
-      <PageHero wide img="/img/banner-brands.webp" title={<>{BRANDS.length} brands.<br />Thoughtfully chosen.</>} text="Food, supplements, toys and everyday essentials we bring to Singapore." />
+      <PageHero wide pos="right 15%" img="/img/banner-brands.webp" title={<>{BRANDS.length} brands.<br />Thoughtfully chosen.</>} text="Food, supplements, toys and everyday essentials we bring to Singapore." />
       <section className="section wrap">
         {BRANDS.map((b, i) => (
           <Link key={b.slug} href={`/brands/${b.slug}`} className={`bRow rise d${Math.min(3, i)}`} style={{ borderLeft: `6px solid ${b.accent}` }}>
