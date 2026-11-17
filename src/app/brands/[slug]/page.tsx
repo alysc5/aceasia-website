@@ -43,6 +43,10 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       )}
       {b.story && <section className="section wrap"><div className="storyCard rise">
         <h2>About {b.name}</h2>{b.story.map((t) => <p key={t.slice(0, 20)}>{t}</p>)}
+        {b.website && <p className="small"><a href={b.website} target="_blank" rel="noopener noreferrer">Visit the {b.name} website →</a></p>}
+      </div></section>}
+      {b.why && <section className="section wrap"><div className="storyCard rise">
+        <h2>Why we brought {b.name} to Singapore</h2>{b.why.map((t) => <p key={t.slice(0, 20)}>{t}</p>)}
       </div></section>}
       <section className="section wrap" id="range">
         <div className="secHead"><h2>Our product range</h2></div>
